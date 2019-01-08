@@ -72,5 +72,3 @@ class SearchCLICommand < CLICommand
     puts "search [string]  - search for a profile matching string"
   end
 end
-
-SearchCLICommand.new()

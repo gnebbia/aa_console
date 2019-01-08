@@ -28,7 +28,7 @@ class ListCLICommand < CLICommand
   def parse_option(option)
     if option == 'help'
       print_help
-    elsif option == 'list' || option == 'enforce'
+    elsif %w[enforce complain all].include?(option)
       list = generate_list
       parse_list(option, list)
     else
@@ -103,7 +103,3 @@ class ListCLICommand < CLICommand
   end
 
 end
-
-
-
-ListCLICommand.new()

@@ -1,6 +1,16 @@
 require '../commands/font_formatter'
 require 'readline'
 require './prompt'
+require '../commands/CLICommand'
+require '../commands/list'
+require '../commands/search'
+
+cmd_list = %w[help list search clear exit]
+
+subcommands = {
+  'list' => ListCLICommand,
+  'search' => SearchCLICommand
+}
 
 help = File.read('help.txt')
 prompt = Prompt.new
@@ -13,17 +23,11 @@ puts 'Starting...'
 while (input = Readline.readline(SetFont.underline('aa-console') + ' > ', true))
 
   cmd, *args = input.split
-  case cmd
-  when 'help'
-    puts help
-  when 'list'
-    puts args
-  when 'search'
-    puts 'asda'
-  when 'exit'
-    exit 0
-  when 'clear'
-    system('clear') 
+  if cmd_list.include?(cmd)
+    puts help if cmd == 'help'
+    exit 0 if cmd == 'exit'
+    system('clear') if cmd == 'clear'
+    subcommands[cmd].new(args[0]) if subcommands.key?(cmd)
   else
     puts 'Unknown command'
   end

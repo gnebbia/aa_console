@@ -5,10 +5,12 @@
     - all          - show all profiles
     - enforce      - show enforce
     - complain     - show complain
+    - help         - show usage
 
 > search [string]  - search for a 
                     profile matching
                     string
+    - help         - show usage
 
 > help             - print help
 > exit             - exit
