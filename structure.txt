@@ -1,0 +1,14 @@
+aa-console/
+├── commands/
+│   ├── CLI-command.rb
+│   ├── list.rb
+|   ├── search.rb
+|   ├── change.rb
+|   ├── disable.rb
+|   ├── font_formatter.rb
+├── parser/
+│   ├── parser.rb
+└── prompt/
+    ├── prompt.rb
+    └── aa-console.rb
+

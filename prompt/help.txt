@@ -1,0 +1,14 @@
+================ HELP ================
+[COMMAND ]                  [ RESULT ]
+======================================
+> list [type]                
+    - all          - show all profiles
+    - enforce      - show enforce
+    - complain     - show complain
+
+> search [string]  - search for a 
+                    profile matching
+                    string
+
+> help             - print help
+> exit             - exit
