@@ -1,22 +1,29 @@
-================ HELP ================
-[COMMAND ]                  [ RESULT ]
-======================================
+================================================
+[ COMMAND ]                [ RESULT ]
+================================================
 > list [type]                
-     all           - show all profiles
-     enforce       - show enforce
-     complain      - show complain
-     help          - show usage
+     all                  - show all profiles
+     enforce              - show enforce
+     complain             - show complain
+     help                 - show usage
 
-> search [string]  - search for a 
-                     profile matching
-                     string
-      help         - show usage
+> search [string]         - search for a
+                            profile matching
+                            string
+     help                 - show usage
 
-> generate [name]  - generate prof
-                     with given name
-      -m   [name]  - launch generate
-                     in manual mode
-      help         - show usage
+> generate <flag> [name]  - generate prof
+                            with given name
+     -m           [name]  - launch generate
+                            in manual mode
+     help                 - show usage
 
-> help             - print help
-> exit             - exit
+> log_search <flag>       - search for DENIED
+                            processes in logs
+     -t                   - search on the
+                            day's log
+     -w                   - search on the
+                            weeks log
+
+> help                    - print help
+> exit                    - exit

@@ -7,13 +7,15 @@ require '../commands/CLICommand'
 require '../commands/list'
 require '../commands/search'
 require '../commands/generate'
+require '../commands/log_search'
 
-cmd_list = %w[help list search generate clear exit]
+cmd_list = %w[help list search generate log_search clear exit]
 
 subcommands = {
   'list' => ListCLICommand,
   'search' => SearchCLICommand,
-  'generate' => GenerateCLICommand
+  'generate' => GenerateCLICommand,
+  'log_search'=> LogSearchCLICommand
 }
 
 help = File.read('help.txt')
