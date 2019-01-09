@@ -2,15 +2,21 @@
 [COMMAND ]                  [ RESULT ]
 ======================================
 > list [type]                
-    - all          - show all profiles
-    - enforce      - show enforce
-    - complain     - show complain
-    - help         - show usage
+     all           - show all profiles
+     enforce       - show enforce
+     complain      - show complain
+     help          - show usage
 
 > search [string]  - search for a 
-                    profile matching
-                    string
-    - help         - show usage
+                     profile matching
+                     string
+      help         - show usage
+
+> generate [name]  - generate prof
+                     with given name
+      -m   [name]  - launch generate
+                     in manual mode
+      help         - show usage
 
 > help             - print help
 > exit             - exit

@@ -10,19 +10,19 @@ require '../commands/font_formatter'
 class ListCLICommand < CLICommand
 
   def initialize(option = nil)
-    if option 
-      parse_option(option)
+    if option[0]
+      parse_option(option[0])
     else
       puts_err
     end
   end
 
   def puts_err
-    puts "[type] is required"
+    puts '[type] is required'
   end
 
   def unknown_cmd
-    puts "Unknown arg"
+    puts 'Unknown arg'
   end
 
   def parse_option(option)

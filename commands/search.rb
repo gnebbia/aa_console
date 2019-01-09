@@ -7,15 +7,15 @@ require '../commands/font_formatter'
 class SearchCLICommand < CLICommand
   def initialize(args = nil)
     @found_profs = ''
-    if args 
-      parse_option(args)
+    if args[0]
+      parse_option(args[0])
     else
       puts_err
     end
   end
 
   def puts_err
-    puts "[String] is required"
+    puts '[String] is required'
   end
 
   def parse_option(arg)
@@ -69,6 +69,6 @@ class SearchCLICommand < CLICommand
   end
 
   def print_help
-    puts "search [string]  - search for a profile matching string"
+    puts 'search [string]  - search for a profile matching string'
   end
 end
