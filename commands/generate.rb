@@ -24,11 +24,7 @@ class GenerateCLICommand < CLICommand
     if args[0] == 'help'
       print_help
     else
-      if args[1]
-        man_gen(name)
-      else
-        auto_gen(name)
-      end
+      args[1] ? man_gen(name) : auto_gen(name)
     end
   end
 

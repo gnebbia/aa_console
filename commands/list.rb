@@ -53,6 +53,7 @@ class ListCLICommand < CLICommand
 
   def print_enforce(list)
     c_list = clean_list(list)
+    puts SetColor.yellow('ENFORCE')
     [0...@enforce_cnt].each do |i|
       puts c_list[i]
     end
@@ -61,6 +62,7 @@ class ListCLICommand < CLICommand
   def print_complain(list)
     c_list = clean_list(list)
     total = @enforce_cnt + @complain_cnt
+    puts SetColor.yellow('COMPLAIN')
     [@enforce_cnt...total].each do |i|
       puts c_list[i]
     end

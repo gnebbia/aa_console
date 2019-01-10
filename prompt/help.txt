@@ -12,9 +12,9 @@
                             string
      help                 - show usage
 
-> generate <flag> [name]  - generate prof
+> generate [name] <flag>  - generate prof
                             with given name
-     -m           [name]  - launch generate
+     [name]  -m           - launch generate
                             in manual mode
      help                 - show usage
 
