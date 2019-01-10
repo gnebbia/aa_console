@@ -67,7 +67,7 @@ class LogSearchCLICommand < CLICommand
   end
 
   def print_help
-    puts "log_search <flag>       - search for DENIED
+    puts "log_search <flag>         - search for DENIED
                             processes in logs
      -t                   - search on the
                             day's log

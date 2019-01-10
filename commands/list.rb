@@ -99,9 +99,9 @@ class ListCLICommand < CLICommand
 
   def print_help
     puts "list [type]
-    - all          - show all profiles
-    - enforce      - show enforce
-    - complain     - show complain"
+      all          - show all profiles
+      enforce      - show enforce
+      complain     - show complain"
   end
 
 end

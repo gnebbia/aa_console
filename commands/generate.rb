@@ -37,10 +37,10 @@ class GenerateCLICommand < CLICommand
   end
 
   def print_help
-    puts 'generate [name]  - generate prof
-                   with given name
-    -m   [name]  - launch generate
-                   in manual mode
-    help         - show usage'
+    puts 'generate [name] <flag> - generate prof
+                         with given name
+     [name] -m         - launch generate
+                         in manual mode
+     help              - show usage'
   end
 end
