@@ -15,7 +15,7 @@ subcommands = {
   'list' => ListCLICommand,
   'search' => SearchCLICommand,
   'generate' => GenerateCLICommand,
-  'log_search'=> LogSearchCLICommand
+  'log_search' => LogSearchCLICommand
 }
 
 help = File.read('help.txt')
@@ -25,6 +25,19 @@ unless prompt.check_uid
   exit 1
 end
 puts 'Starting...'
+puts "
+================================================
+                 _____ _____
+                |  _  |  _  |
+                |     |     |
+                |__|__|__|__|
+   _____ _____ _____ _____ _____ __    _____
+  |     |     |   | |   __|     |  |  |   __|
+  |   --|  |  | | | |__   |  |  |  |__|   __|
+  |_____|_____|_|___|_____|_____|_____|_____|
+
+================================================
+                                           "
 
 while (input = Readline.readline(SetFont.underline('aa-console') + ' > ', true))
 
