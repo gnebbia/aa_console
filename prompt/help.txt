@@ -5,25 +5,25 @@
      all                  - show all profiles
      enforce              - show enforce
      complain             - show complain
-     help                 - show usage
 
 > search [string]         - search for a
                             profile matching
                             string
-     help                 - show usage
 
 > generate [name] <flag>  - generate prof
                             with given name
      [name]  -m           - launch generate
                             in manual mode
-     help                 - show usage
 
 > log_search <flag>       - search for DENIED
                             processes in logs
-     -t                   - search on the
+     -d                   - search on the
                             day's log
-     -w                   - search on the
+     -n                   - search on the
                             weeks log
 
 > help                    - print help
+                           (used after a cmd
+                           shows cmd usage)
+
 > exit                    - exit

@@ -40,7 +40,6 @@ class GenerateCLICommand < CLICommand
     puts 'generate [name] <flag> - generate prof
                          with given name
      [name] -m         - launch generate
-                         in manual mode
-     help              - show usage'
+                         in manual mode'
   end
 end

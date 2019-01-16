@@ -12,7 +12,7 @@ class LogSearchCLICommand < CLICommand
   def initialize(args = nil)
     @today = Date.today.yday
     if args[0]
-      parse_option(args[0])
+      parse_option(args)
     else
       no_opt_search
     end
@@ -22,32 +22,39 @@ class LogSearchCLICommand < CLICommand
     puts 'Please select a valid flag'
   end
 
-  def parse_option(flag)
-    if %w[-w -d].include?(flag)
-      opt_search(flag)
-    elsif flag == 'help'
+  def puts_day_error
+    puts 'Please provide day number'
+  end
+
+  def parse_option(args)
+    if %w[-n -d].include?(args[0])
+      opt_search(args)
+    elsif args[0] == 'help'
       print_help
     else
       puts_err
     end
   end
 
-  def opt_search(flag)
-    daily_search if flag == '-d'
-    weekly_search if flag == '-w'
+  def opt_search(args)
+    if args[0] == '-d'
+      daily_search
+    else
+      args[1] ? custom_search(args[1].to_i) : puts_day_error
+    end
   end
 
   def daily_search
     s_log = gen_log
     s_log.each do |str|
       tmp_date = str.match(/(?<=audit\()[0-9]+/)
-      day = DateTime.strptime(tmp_date.to_s, '%s').yday
+      day = DateTime.strptime(tmp_date.to_s, '%s')
       puts str if day == @today
     end
   end
 
-  def weekly_search
-    d_limit = @today - 7
+  def custom_search(n_day)
+    d_limit = @today - n_day
     s_log = gen_log
     s_log.each do |str|
       tmp_date = str.match(/(?<=audit\()[0-9]+/)
@@ -59,7 +66,6 @@ class LogSearchCLICommand < CLICommand
   def gen_log
     log = `grep 'DENIED' /var/log/audit/audit.log`
     log.split("\n")
-
   end
 
   def no_opt_search
@@ -69,9 +75,9 @@ class LogSearchCLICommand < CLICommand
   def print_help
     puts "log_search <flag>         - search for DENIED
                             processes in logs
-     -t                   - search on the
+     -d                   - search on the
                             day's log
-     -w                   - search on the
-                            weeks log"
+     -n [day_#]           - search on the
+                            previous N day log"
   end
 end
