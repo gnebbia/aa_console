@@ -48,7 +48,7 @@ class LogSearchCLICommand < CLICommand
     s_log = gen_log
     s_log.each do |str|
       tmp_date = str.match(/(?<=audit\()[0-9]+/)
-      day = DateTime.strptime(tmp_date.to_s, '%s')
+      day = DateTime.strptime(tmp_date.to_s, '%s').yday
       puts str if day == @today
     end
   end
