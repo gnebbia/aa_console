@@ -39,7 +39,7 @@ class GenerateCLICommand < CLICommand
   def print_help
     puts 'generate [name] <flag> - generate prof
                          with given name
-     [name] -m         - launch generate
+      -m               - launch generate
                          in manual mode'
   end
 end

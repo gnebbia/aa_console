@@ -12,7 +12,7 @@
 
 > generate [name] <flag>  - generate prof
                             with given name
-     [name]  -m           - launch generate
+     -m                   - launch generate
                             in manual mode
 
 > log_search <flag>       - search for DENIED
@@ -21,6 +21,12 @@
                             day's log
      -n                   - search on the
                             weeks log
+
+> change_prof <m> [prof]  - change 'prof' in mode
+                            specified with 'm'
+     -e                   - change in Enforce
+     -c                   - change in Complain
+
 
 > help                    - print help
                            (used after a cmd

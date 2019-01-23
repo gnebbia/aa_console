@@ -3,8 +3,8 @@ require 'readline'
 class Prompt
   def initialize
     @cmd_list = %w[list search generate log_search
-                   all enforce complain clear help
-                   exit] # TODO: add commands
+                   change_prof all enforce complain clear
+                   help exit] # TODO: add commands
     complete_proc
   end
 
