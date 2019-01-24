@@ -29,7 +29,6 @@ class ChangeProfCLICommand < CLICommand
     puts 'Selected profile does not exist'
   end
 
-  # @todo aggiungere print help
   def parse_option(args)
     if %w[-e -c].include?(args[0])
       change_mode(args)
@@ -41,25 +40,28 @@ class ChangeProfCLICommand < CLICommand
   end
 
   def change_mode(args)
-    missing_args unless args[1]
-    if args[0] == '-e'
-      change_enforce(args[1])
+    if args[1]
+      if args[0] == '-e'
+        change_enforce(args[1])
+      else
+        change_complain(args[1])
+      end
     else
-      change_complain(args[1])
+      missing_args
     end
   end
 
   def change_enforce(prof)
-    if @c_list.include?(prof.to_s)
-      "sudo aa-enforce#{prof}"
+    if @c_list.include?(prof)
+      `sudo aa-enforce #{prof}`
     else
-      puts prof_error
+     puts prof_error
     end
   end
 
   def change_complain(prof)
-    if c_list.include?(prof.to_s)
-      "sudo aa-complain #{prof}"
+    if c_list.include?(prof)
+      `sudo aa-complain #{prof}`
     else
       puts prof_error
     end
@@ -84,7 +86,7 @@ class ChangeProfCLICommand < CLICommand
     list.slice!(0..2)
     list.delete_at(@enforce_cnt)
     list.slice!(@enforce_cnt + @complain_cnt..-1)
-    list
+    list.collect(&:lstrip)
   end
 
   def print_help
