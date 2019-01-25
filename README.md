@@ -22,7 +22,7 @@ In order to use `aa_console` you need:
 * **auditd** installed and enabled on your system (the `log_search` command relies on this daemon)
 
 ## Usage
-The main file is the one called `./aa_console.rb` and it **must be run as sudo**. Once the program is running you've just to run `help` to get a command list with description </br>
+The main file is the one called `./aa_console.rb` and it **must be run as sudo**. Once the program is running you've just to type `help` to get a command list with description </br>
 ```
 ================================================
 [ COMMAND ]                [ RESULT ]
