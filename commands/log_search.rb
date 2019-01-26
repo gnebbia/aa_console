@@ -80,7 +80,11 @@ class LogSearchCLICommand < CLICommand
   end
 
   def no_opt_search
-    system("grep 'DENIED' /var/log/audit/audit.log")
+    s_log = gen_log
+    s_log.each do |str|
+      tmp = parse_log(str)
+      puts "PROC: #{tmp[0]}\tDATE: #{tmp[1]}\tOP: #{tmp[2]}\tCMD: #{tmp[3]}"
+    end
   end
 
   def print_help
