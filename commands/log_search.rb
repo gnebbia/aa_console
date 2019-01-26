@@ -47,9 +47,10 @@ class LogSearchCLICommand < CLICommand
   def daily_search
     s_log = gen_log
     s_log.each do |str|
-      tmp_date = str.match(/(?<=audit\()[0-9]+/)
-      day = DateTime.strptime(tmp_date.to_s, '%s').yday
-      puts str if day == @today
+      tmp = parse_log(str)
+      if tmp[1].yday == @today
+        puts "PROC: #{tmp[0]}\tDATE: #{tmp[1]}\tOP: #{tmp[2]}\tCMD: #{tmp[3]}"
+      end
     end
   end
 
@@ -57,10 +58,20 @@ class LogSearchCLICommand < CLICommand
     d_limit = @today - n_day
     s_log = gen_log
     s_log.each do |str|
-      tmp_date = str.match(/(?<=audit\()[0-9]+/)
-      day = DateTime.strptime(tmp_date.to_s, '%s').yday
-      puts str if day >= d_limit
+      tmp = parse_log(str)
+      if tmp[1].yday >= d_limit
+        puts "PROC: #{tmp[0]}\tDATE: #{tmp[1]}\tOP: #{tmp[2]}\tCMD: #{tmp[3]}"
+      end
     end
+  end
+
+  def parse_log(str)
+    proc = str.match(/(?<=profile\=\")[a-zA-Z\/+\-+\.+]+/)
+    op = str.match(/(?<=operation\=\")[a-zA-Z\/+\-+\.+]+/)
+    cmd = str.match(/(?<=comm\=\")[a-zA-Z\/+\-+\.+]+/)
+    tmp_date = str.match(/(?<=audit\()[0-9]+/)
+    date = DateTime.strptime(tmp_date.to_s, '%s').to_date
+    [proc, date, op, cmd]
   end
 
   def gen_log
@@ -78,6 +89,6 @@ class LogSearchCLICommand < CLICommand
      -d                   - search on the
                             day's log
      -n [day_#]           - search on the
-                            previous N day log"
+                            previous N days log"
   end
 end

@@ -20,7 +20,7 @@
      -d                   - search on the
                             day's log
      -n                   - search on the
-                            weeks log
+                            previous N days log
 
 > change_prof <m> [prof]  - change 'prof' in mode
                             specified with 'm'
