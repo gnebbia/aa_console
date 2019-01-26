@@ -11,6 +11,8 @@
   |_____|_____|_|___|_____|_____|_____|_____|
 
 ================================================
+
+aa-console > 
 ```
 ## What is aa_console?
 Aa_console is a CLI tool that helps with AppArmor management; It simplifies the basic AppArmor operations and adds some custom commands (e.g. `log_search`) </br>
@@ -46,7 +48,7 @@ The main file is the one called `./aa_console.rb` and it **must be run as sudo**
      -d                   - search on the
                             day's log
      -n                   - search on the
-                            weeks log
+                            n-days-before log
 
 > change_prof <m> [prof]  - change 'prof' in mode
                             specified with 'm'
