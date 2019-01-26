@@ -24,7 +24,7 @@ In order to use `aa_console` you need:
 * **auditd** installed and enabled on your system (the `log_search` command relies on this daemon)
 
 ## Usage
-The main file is the one called `./aa_console.rb` and it **must be run as sudo**. Once the program is running you've just to type `help` to get a command list with description </br>
+The main file is the one called `./aa_console.rb` and it **must be run as sudo**. Once the program is running you have just to type `help` to get a command list with description </br>
 ```
 ================================================
 [ COMMAND ]                [ RESULT ]
@@ -48,7 +48,7 @@ The main file is the one called `./aa_console.rb` and it **must be run as sudo**
      -d                   - search on the
                             day's log
      -n                   - search on the
-                            n-days-before log
+                            previous N days log
 
 > change_prof <m> [prof]  - change 'prof' in mode
                             specified with 'm'
