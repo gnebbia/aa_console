@@ -47,7 +47,7 @@ The main file is the one called `./aa_console.rb` and it **must be run as sudo**
                             processes in logs
      -d                   - search on the
                             day's log
-     -n                   - search on the
+     -n [day_#]           - search on the
                             previous N days log
 
 > change_prof <m> [prof]  - change 'prof' in mode
