@@ -11,4 +11,4 @@ In order to use `aa_console` you need:
 
 ## Usage
 The main file is the one called `./aa_console.rb` and it **must be run as sudo**. Once the program is running you have just to type `help` to get a command list with description </br>
-![](img/help.gif)
+![](img/help_.gif)
