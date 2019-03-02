@@ -1,6 +1,6 @@
-# Aa_console
+# AaConsole
 ![](img/start.png)
-## What is aa_console?
+## What is AaConsole?
 Aa_console is a CLI tool that helps with AppArmor management; It simplifies the basic AppArmor operations and adds some custom commands (e.g. `log_search`) </br>
 
 ## Requirements
