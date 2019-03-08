@@ -5,6 +5,7 @@
 require 'date'
 require '../commands/CLICommand'
 require '../commands/font_formatter'
+require '../exceptions/FlagRequired'
 
 class LogSearchCLICommand < CLICommand
   attr_reader :today
@@ -22,10 +23,6 @@ class LogSearchCLICommand < CLICommand
     puts 'Please select a valid flag'
   end
 
-  def puts_day_error
-    puts 'Please provide day number'
-  end
-
   def parse_option(args)
     if %w[-n -d].include?(args[0])
       opt_search(args)
@@ -40,7 +37,19 @@ class LogSearchCLICommand < CLICommand
     if args[0] == '-d'
       daily_search
     else
-      args[1] ? custom_search(args[1].to_i) : puts_day_error
+      check_args(args)
+    end
+  end
+
+  def check_args(args)
+    if args[1]
+      custom_search(args[1].to_i)
+    else
+      begin
+        raise FlagRequired.new('[day-number]', ' is required')
+      rescue StandardError => e
+        puts e.message
+      end
     end
   end
 

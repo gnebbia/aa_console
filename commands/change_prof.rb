@@ -1,4 +1,5 @@
 require '../commands/CLICommand'
+require '../exceptions/FlagRequired'
 
 class ChangeProfCLICommand < CLICommand
   attr_reader :c_list
@@ -9,20 +10,16 @@ class ChangeProfCLICommand < CLICommand
       @c_list = clean_list(list)
       parse_option(args)
     else
-      puts_err
+      begin
+        raise FlagRequired.new('[mode]', ' is required')
+      rescue StandardError => e
+        puts e.message
+      end
     end
-  end
-
-  def puts_err
-    puts '[mode] is required'
   end
 
   def invalid_flags
     puts 'Insert a valid flag'
-  end
-
-  def missing_args
-    puts 'Please provide a profile name'
   end
 
   def prof_error
@@ -41,13 +38,13 @@ class ChangeProfCLICommand < CLICommand
 
   def change_mode(args)
     if args[1]
-      if args[0] == '-e'
-        change_enforce(args[1])
-      else
-        change_complain(args[1])
-      end
+      args[0] == '-e' ? change_enforce(args[1]) : change_complain(args[1])
     else
-      missing_args
+      begin
+        raise FlagRequired.new('[name]', ' is required')
+      rescue StandardError => e
+        puts e.message
+      end
     end
   end
 
@@ -55,7 +52,7 @@ class ChangeProfCLICommand < CLICommand
     if @c_list.include?(prof)
       `sudo aa-enforce #{prof}`
     else
-     puts prof_error
+      puts prof_error
     end
   end
 

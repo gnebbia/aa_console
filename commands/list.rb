@@ -6,6 +6,7 @@
 
 require '../commands/CLICommand'
 require '../commands/font_formatter'
+require '../exceptions/FlagRequired'
 
 class ListCLICommand < CLICommand
 
@@ -13,13 +14,13 @@ class ListCLICommand < CLICommand
     if option[0]
       parse_option(option[0])
     else
-      puts_err
+      begin
+        raise FlagRequired.new(' [type] ', 'is required')
+      rescue StandardError => e
+        puts e.message
+      end
     end
-  end
-
-  def puts_err
-    puts '[type] is required'
-  end
+    end
 
   def unknown_cmd
     puts 'Unknown arg'

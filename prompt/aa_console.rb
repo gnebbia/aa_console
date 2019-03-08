@@ -9,6 +9,7 @@ require '../commands/search'
 require '../commands/generate'
 require '../commands/log_search'
 require '../commands/change_prof'
+require '../exceptions/CommandNotFound'
 
 cmd_list = %w[help list search generate log_search change_prof clear exit]
 
@@ -50,6 +51,10 @@ while (input = Readline.readline(SetFont.underline('aa-console') + ' > ', true))
     system('clear') if cmd == 'clear'
     subcommands[cmd].new(args) if subcommands.key?(cmd)
   else
-    puts 'Unknown command'
+    begin
+    raise CommandNotFound.new(cmd, ' command not found')
+    rescue StandardError => e
+    puts e.message
+    end
   end
 end

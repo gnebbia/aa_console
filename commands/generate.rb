@@ -5,18 +5,19 @@
 
 require '../commands/CLICommand'
 require '../commands/font_formatter'
+require '../exceptions/FlagRequired'
 
 class GenerateCLICommand < CLICommand
   def initialize(args = nil)
     if args[0]
       parse_option(args)
     else
-      puts_err
+      begin
+      raise FlagRequired.new('[name] ', 'is required')
+      rescue StandardError => e
+        puts e.message
+      end
     end
-  end
-
-  def puts_err
-    puts '[name] is required'
   end
 
   def parse_option(args)

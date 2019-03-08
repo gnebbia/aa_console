@@ -3,6 +3,7 @@
 
 require '../commands/CLICommand'
 require '../commands/font_formatter'
+require '../exceptions/FlagRequired'
 
 class SearchCLICommand < CLICommand
   def initialize(args = nil)
@@ -10,12 +11,12 @@ class SearchCLICommand < CLICommand
     if args[0]
       parse_option(args[0])
     else
-      puts_err
+      begin
+      raise FlagRequired.new('[string]', ' is required')
+      rescue StandardError => e
+        puts e.message
+      end
     end
-  end
-
-  def puts_err
-    puts '[String] is required'
   end
 
   def parse_option(arg)
