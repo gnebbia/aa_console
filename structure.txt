@@ -3,14 +3,14 @@ aa-console/
 │   ├── CLI-command.rb
 │   ├── list.rb
 │   ├── search.rb
-│   ├── change.rb
+│   ├── change_prof.rb
 │   ├── generate.rb
-│   ├── disable.rb
 │   ├── font_formatter.rb
-│   ├── log_search.rb
-│
-└── prompt/
-    ├── prompt.rb
-    ├── aa-console.rb
-    └── help.txt
-
+│   └── log_search.rb
+├── prompt/
+│   ├── prompt.rb
+│   ├── aa-console.rb
+│   └── help.txt
+└── exceptions/
+    ├── CommandNotFound.rb
+    └── FlagRequired.rb
