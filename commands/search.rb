@@ -1,8 +1,8 @@
 # Command to search for a specic profile
 # passing a string to it
 
-require '../commands/CLICommand'
-require '../commands/font_formatter'
+require_relative 'CLICommand'
+require_relative 'font_formatter'
 require '../exceptions/FlagRequired'
 
 class SearchCLICommand < CLICommand
@@ -18,7 +18,7 @@ class SearchCLICommand < CLICommand
       end
     end
   end
-
+  
   def parse_option(arg)
     if arg == 'help'
       print_help

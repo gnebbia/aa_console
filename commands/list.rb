@@ -4,8 +4,8 @@
 # --complain   =   to show all the profiles in complain-mode
 # --enforce    =   to show all the profiles in enforce mode
 
-require '../commands/CLICommand'
-require '../commands/font_formatter'
+require_relative 'CLICommand'
+require_relative 'font_formatter'
 require '../exceptions/FlagRequired'
 
 class ListCLICommand < CLICommand

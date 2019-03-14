@@ -3,8 +3,8 @@
 # have been blocked from AppArmor
 
 require 'date'
-require '../commands/CLICommand'
-require '../commands/font_formatter'
+require_relative 'CLICommand'
+require_relative 'font_formatter'
 require '../exceptions/FlagRequired'
 
 class LogSearchCLICommand < CLICommand

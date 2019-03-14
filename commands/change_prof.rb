@@ -1,4 +1,4 @@
-require '../commands/CLICommand'
+require_relative 'CLICommand'
 require '../exceptions/FlagRequired'
 
 class ChangeProfCLICommand < CLICommand
